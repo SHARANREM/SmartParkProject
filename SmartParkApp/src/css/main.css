@@ -1,0 +1,189 @@
+* {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+  color: #34495e;
+}
+
+.main {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.main h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+.main h1:first-of-type {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: "powderedblue";
+}
+.main .main-t {
+  margin-bottom: 40px;
+}
+.main .main-t h1 {
+  font-size: 3.5em;
+  color: blueviolet;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+.main .main-t h4 {
+  font-size: 1.2em;
+  color: #2c3e50;
+  font-weight: normal;
+}
+.main .main-t h4 span {
+  color: blueviolet;
+  font-weight: bold;
+}
+.main .main-s {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  z-index: 99;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.main .main-s .bike, .main .main-s .car, .main .main-s .truck {
+  background-color: #ecf0f1;
+  padding: 25px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 180px;
+  margin-bottom: 20px;
+}
+.main .main-s .bike img, .main .main-s .car img, .main .main-s .truck img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.main .main-s .bike h3, .main .main-s .car h3, .main .main-s .truck h3 {
+  color: #2c3e50;
+  font-size: 1.3em;
+  margin: 0;
+}
+.main .main-s .bike:hover, .main .main-s .car:hover, .main .main-s .truck:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  z-index: 112;
+}
+.main .main-s .bike.selected, .main .main-s .car.selected, .main .main-s .truck.selected {
+  border: 3px solid #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  z-index: 112;
+}
+.main .main-b button {
+  background-color: skyblue;
+  color: white;
+  padding: 20px 60px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.main .main-b button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+.main .main-b button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.main .main-b button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: translateY(0);
+  box-shadow: none;
+}
+@media (max-width: 480px) {
+  .main .main-b button {
+    width: 100%;
+    padding: 18px 0;
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 30px;
+  }
+  .main h1 {
+    font-size: 2em;
+  }
+  .main .main-t h1 {
+    font-size: 2.8em;
+  }
+  .main .main-t h4 {
+    font-size: 1em;
+  }
+  .main .main-s {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .main .main-s .bike, .main .main-s .car, .main .main-s .truck {
+    width: 80%;
+    max-width: 250px;
+  }
+}
+@media (max-width: 480px) {
+  .main {
+    padding: 20px;
+  }
+  .main h1 {
+    font-size: 1.5em;
+  }
+  .main h1:first-of-type {
+    font-size: 1.3em;
+  }
+  .main .main-t h1 {
+    font-size: 2em;
+  }
+  .main .main-b button {
+    padding: 12px 30px;
+    font-size: 1em;
+  }
+}
+.preloader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preloader img {
+  width: 25%;
+  height: 25%;
+}/*# sourceMappingURL=main.css.map */

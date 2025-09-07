@@ -1,0 +1,211 @@
+// Variables for colors and common styles
+$primary-color: #2c3e50; // Dark blue/grey for text and accents
+$secondary-color: #ffffff; // Bright blue for highlights
+$light-bg: #ecf0f1; // Light background
+$dark-text: #34495e; // Darker text for contrast
+$border-radius: 8px;
+$transition-speed: 0.3s ease-in-out;
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    color: $dark-text;
+}
+
+.main {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    box-sizing: border-box; // Include padding in element's total width and height
+
+    h1 {
+        color: $primary-color;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+
+        &:first-of-type { // "Select your vehicle"
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: $main-color;
+        }
+    }
+
+    .main-t {
+        margin-bottom: 40px;
+
+        h1 {
+            font-size: 3.5em;
+            color: blueviolet;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: $primary-color;
+            font-weight: normal;
+
+            span {
+                color: blueviolet;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .main-s {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    z-index: 99;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    .bike, .car, .truck {
+        background-color: $light-bg;
+        padding: 25px 30px;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: transform $transition-speed, box-shadow $transition-speed, background-color $transition-speed;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 180px;
+        margin-bottom: 20px; // ← Add margin for vertical spacing
+
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: $primary-color;
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            z-index: 112; // ← Lift card above neighbors
+        }
+
+        &.selected {
+            border: 3px solid $secondary-color;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            z-index: 112;
+        }
+    }
+}
+
+
+    .main-b {
+    button {
+        background-color: skyblue;
+        color: white;
+        padding: 20px 60px; // Bigger tappable area
+        border: none;
+        border-radius: 12px; // More rounded for app-style
+        font-size: 1.5em; // Larger text
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color $transition-speed, transform $transition-speed, box-shadow $transition-speed;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        // Make button responsive on small screens
+        @media (max-width: 480px) {
+            width: 100%; // Full width
+            padding: 18px 0;
+            font-size: 1.3em;
+        }
+    }
+}
+
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+    .main {
+        padding: 30px;
+
+        h1 {
+            font-size: 2em;
+        }
+
+        .main-t {
+            h1 {
+                font-size: 2.8em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+        }
+
+        .main-s {
+            flex-direction: column; // Stack items vertically
+            align-items: center; // Center stacked items
+            gap: 20px; // Less gap when stacked
+
+            .bike, .car, .truck {
+                width: 80%; // Make cards wider
+                max-width: 250px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .main {
+        padding: 20px;
+
+        h1 {
+            font-size: 1.5em;
+
+            &:first-of-type {
+                font-size: 1.3em;
+            }
+        }
+
+        .main-t h1 {
+            font-size: 2em;
+        }
+
+        .main-b button {
+            padding: 12px 30px;
+            font-size: 1em;
+        }
+    }
+}

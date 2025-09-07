@@ -1,0 +1,118 @@
+$main-color:'powderedblue';
+$dark: "black";
+$light:"white";
+$dark-light:rgba(19, 14, 14, 0.84);
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+// Floating card sidebar (popup style)
+.sidebar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 350px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 50px 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+    .park-here{
+        width: 100%;
+        height: 30px;
+        background-color: skyblue;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        transition: .5s ease;
+        &:hover{
+            background-color: blueviolet;
+            color: black;
+        }
+    }
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #555;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin: 0 0 15px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  p {
+    font-size: 0.95em;
+    margin: 8px 0;
+    color: #555;
+
+    span {
+      font-weight: 600;
+      color: #000;
+    }
+  }
+
+  .book-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}
+
+// Mobile specific
+@media (max-width: 425px) {
+  .sidebar {
+    width: 95%;
+    max-width: 95%;
+    padding: 15px;
+  }
+}

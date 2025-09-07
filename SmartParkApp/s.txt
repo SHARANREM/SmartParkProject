@@ -1,0 +1,134 @@
+else if (type === 2) {
+  parkingLot.innerHTML = "";
+
+  // Add roads (cols 2 and 4 full height)
+  const roadLeft = document.createElement("div");
+  roadLeft.className = "road";
+  roadLeft.style.gridColumn = "2";
+  roadLeft.style.gridRow = "1 / span 4";
+  parkingLot.appendChild(roadLeft);
+
+  const roadRight = document.createElement("div");
+  roadRight.className = "road";
+  roadRight.style.gridColumn = "4";
+  roadRight.style.gridRow = "1 / span 4";
+  parkingLot.appendChild(roadRight);
+
+  // Row by row
+  for (let row = 1; row <= 4; row++) {
+    // Left slot (col 1)
+    const leftSlot = document.createElement("div");
+    leftSlot.className = "slot";
+    leftSlot.style.gridColumn = "1";
+    leftSlot.style.gridRow = row;
+
+    let imgL = document.createElement("img");
+    imgL.src = `/assets/icons/${getRandomStatus()}.png`;
+    let labelL = document.createElement("span");
+    labelL.textContent = row;
+
+    leftSlot.appendChild(imgL);
+    leftSlot.appendChild(labelL);
+    parkingLot.appendChild(leftSlot);
+
+    // Diagonal lane (col 3)
+    const lane = document.createElement("div");
+    lane.className = "lane";
+    lane.style.gridColumn = "3";
+    lane.style.gridRow = row;
+
+    let c1Index = (row - 1) * 2 + 1;
+    let c2Index = (row - 1) * 2 + 2;
+
+    [c1Index, c2Index].forEach((ci) => {
+      const car = document.createElement("div");
+      car.className = "diagonal " + (ci % 2 === 1 ? "backslash" : "slash");
+      let img = document.createElement("img");
+      img.src = `/assets/icons/${getRandomStatus()}.png`;
+      car.appendChild(img);
+      lane.appendChild(car);
+    });
+
+    parkingLot.appendChild(lane);
+
+    // Right slot (col 5)
+    const rightSlot = document.createElement("div");
+    rightSlot.className = "slot";
+    rightSlot.style.gridColumn = "5";
+    rightSlot.style.gridRow = row;
+
+    let imgR = document.createElement("img");
+    imgR.src = `/assets/icons/${getRandomStatus()}.png`;
+    let labelR = document.createElement("span");
+    labelR.textContent = row + 4;
+
+    rightSlot.appendChild(imgR);
+    rightSlot.appendChild(labelR);
+    parkingLot.appendChild(rightSlot);
+  }
+}
+
+
+/* Type 2 (angled layout) */
+// .type2 {
+//   display: grid;
+//   grid-template-columns: 100px 60px 150px 60px 100px; // left | road | diagonal | road | right
+//   grid-template-rows: repeat(4, 120px);
+//   justify-content: center;
+//   gap: 10px;
+
+//   .slot {
+//     width: 80px;
+//     height: 120px;
+//     background: #fff;
+//     border: 2px dashed #333;
+//     border-radius: 5px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+
+//     img {
+//       max-width: 70%;
+//       max-height: 60%;
+//       margin-bottom: 5px;
+//     }
+//   }
+
+//   .road {
+//     background: #444;
+//     border-radius: 6px;
+//   }
+
+//   .lane {
+//     background: #5d6d7e;
+//     border-radius: 8px;
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   .diagonal {
+//     position: absolute;
+//     width: 80px;
+//     height: 120px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     img {
+//       width: 70%;
+//     }
+//   }
+
+//   .slash {
+//     transform: rotate(30deg);
+//     left: 0;
+//   }
+
+//   .backslash {
+//     transform: rotate(-30deg);
+//     right: 0;
+//   }
+// }

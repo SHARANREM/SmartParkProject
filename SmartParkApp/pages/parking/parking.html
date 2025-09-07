@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Layout</title>
+  <link rel="stylesheet" href="/src/css/parking.css">
+</head>
+<body>
+     <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item">
+      <img src="/assets/icons/emptycar.png" alt="Free">
+      <span>Free</span>
+    </div>
+    <div class="legend-item">
+      <img src="/assets/icons/fullcar.png" alt="Full">
+      <span>Full</span>
+    </div>
+    <div class="legend-item">
+      <img src="/assets/icons/bookedcar.png" alt="Booked">
+      <span>Booked</span>
+    </div>
+  </div>
+  <div id="mapContainer"></div>
+  <div id="parkingLot" class="parking type1"></div>
+  
+  
+  <script type="module" src="parking.js"></script>
+
+</body>
+</html>
